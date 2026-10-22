@@ -1,55 +1,45 @@
-import { useEffect, useState } from 'react';
 import { useContent } from '../../context/ContentContext';
+import CmsImage from '../CmsImage';
 import Reveal from '../Reveal';
 
-const INTERVAL = 6000;
+const AVATAR_COLORS = ['#073b68', '#24824a', '#d6a51b'];
+
+const initials = (name) => name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase();
 
 export default function Testimonial() {
   const { content } = useContent();
-  const items = content.testimonial?.items || [];
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused || items.length < 2) return undefined;
-    const timer = setInterval(() => setIndex((i) => (i + 1) % items.length), INTERVAL);
-    return () => clearInterval(timer);
-  }, [paused, items.length]);
-
+  const t = content.testimonial || {};
+  const items = t.items || [];
   if (!items.length) return null;
-  const current = items[index % items.length];
 
   return (
     <section className="testimonial-section">
       <div className="container">
-        <Reveal>
-          <div
-            className="testimonial"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <div className="quote-mark" aria-hidden>“</div>
-            <blockquote key={index}>{current.quote}</blockquote>
-            <cite>{current.name}<small>{current.role}</small></cite>
-            {items.length > 1 && (
-              <div className="t-controls">
-                <button type="button" aria-label="Previous quote" onClick={() => setIndex((index - 1 + items.length) % items.length)}>←</button>
-                <div className="t-dots">
-                  {items.map((_, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      aria-label={`Quote ${i + 1}`}
-                      className={i === index % items.length ? 'active' : ''}
-                      onClick={() => setIndex(i)}
-                    ></button>
-                  ))}
+        <div className="section-heading">
+          <p className="eyebrow centered">{t.eyebrow}</p>
+          <h2>{t.title} <em>{t.titleAccent}</em></h2>
+        </div>
+        <div className="t-grid">
+          {items.map((item, i) => (
+            <Reveal className="t-card" key={i} delay={i * 90}>
+              <div className="quote-mark" aria-hidden>“</div>
+              <blockquote>{item.quote}</blockquote>
+              <div className="t-person">
+                {item.photo ? (
+                  <span className="t-avatar"><CmsImage imageRef={item.photo} alt="" /></span>
+                ) : (
+                  <span className="t-avatar" style={{ background: AVATAR_COLORS[i % AVATAR_COLORS.length] }} aria-hidden>
+                    {initials(item.name || '?')}
+                  </span>
+                )}
+                <div>
+                  <strong>{item.name}</strong>
+                  <small>{item.role}</small>
                 </div>
-                <button type="button" aria-label="Next quote" onClick={() => setIndex((index + 1) % items.length)}>→</button>
               </div>
-            )}
-          </div>
-        </Reveal>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

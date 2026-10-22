@@ -15,6 +15,8 @@ import CtaBand from '../components/site/CtaBand';
 import Donate from '../components/site/Donate';
 import Faq from '../components/site/Faq';
 import About from '../components/site/About';
+import Partners from '../components/site/Partners';
+import FooterCta from '../components/site/FooterCta';
 import Footer from '../components/site/Footer';
 import SmartLink from '../components/SmartLink';
 
@@ -85,6 +87,8 @@ export default function Home() {
         <Donate />
         <Faq />
         <About />
+        <Partners />
+        <FooterCta />
       </main>
       <Footer />
       <DonatePill />

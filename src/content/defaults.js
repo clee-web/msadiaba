@@ -40,10 +40,15 @@ export const DEFAULT_CONTENT = {
     lead: 'We empower communities in Kisumu through practical skills, essential services and real opportunities for a brighter, more inclusive future.',
     btn1Label: 'Donate Now',
     btn1Href: '#donate',
-    btn2Label: 'See Our Impact',
-    btn2Href: '#impact',
+    btn2Label: 'Partner with Us',
+    btn2Href: 'mailto:madiabacbo@gmail.com?subject=Partnership%20enquiry',
     note: 'Community-led initiatives. Practical solutions. Lasting change.',
     image: 'assets/training-workshop.jpg',
+    slides: [
+      'assets/training-workshop.jpg',
+      'assets/thematic/graduation-day.jpg',
+      'assets/thematic/jiko-insulated-batch.jpg',
+    ],
     photoLabelTitle: 'Skills for life.',
     photoLabelText: 'Opportunity for everyone.',
     stampTop: 'LOCAL',
@@ -55,9 +60,10 @@ export const DEFAULT_CONTENT = {
   },
   values: {
     items: [
-      { icon: '♧', title: 'Community-led', text: 'Driven by the people, for the people.' },
-      { icon: '🎓', title: 'Skills for life', text: 'Practical training. Lasting change.' },
-      { icon: '🌱', title: 'Local impact', text: 'Stronger families. Healthier communities.' },
+      { icon: '🤝', title: 'Community Empowerment', text: 'Driven by the people, for the people.' },
+      { icon: '🛠', title: 'Practical Skills', text: 'Training that turns into real income.' },
+      { icon: '🌱', title: 'Sustainable Livelihoods', text: 'Climate-smart farming and clean energy.' },
+      { icon: '⚖', title: 'Justice & Inclusion', text: 'Equity and rights for the marginalized.' },
     ],
   },
   services: {
@@ -156,10 +162,13 @@ export const DEFAULT_CONTENT = {
     ],
   },
   testimonial: {
+    eyebrow: 'TESTIMONIES',
+    title: 'What people',
+    titleAccent: 'say about us.',
     items: [
-      { quote: 'I arrived with nothing but hope. The training gave me a trade — and my children a future.', name: 'A Madiaba graduate', role: 'Technical Training College' },
-      { quote: 'The catering course turned my small hustle into a real business with regular customers.', name: 'A catering program alumna', role: 'Catering & Events Management' },
-      { quote: 'Skills I learned here got me my first paying job within three months of finishing.', name: 'A welding trainee', role: 'Welding & Fabrication' },
+      { quote: 'I arrived with nothing but hope. The training gave me a trade — and my children a future.', name: 'A Madiaba graduate', role: 'Technical Training College', photo: '' },
+      { quote: 'The catering course turned my small hustle into a real business with regular customers.', name: 'A catering program alumna', role: 'Catering & Events Management', photo: '' },
+      { quote: 'Skills I learned here got me my first paying job within three months of finishing.', name: 'A welding trainee', role: 'Welding & Fabrication', photo: '' },
     ],
   },
   donate: {
@@ -201,11 +210,11 @@ export const DEFAULT_CONTENT = {
     ],
   },
   cta: {
-    icon: '🎓',
-    title: 'Skills create',
-    titleAccent: 'opportunity',
-    text: 'Get trained. Build your future. Be part of a stronger community.',
-    btnLabel: 'Give the Gift of Skills',
+    icon: '🌿',
+    title: 'More than',
+    titleAccent: '1,000+ lives touched',
+    text: 'have put their faith in us. Here is how you can join them.',
+    btnLabel: 'Donate Now',
     btnHref: '#donate',
   },
   about: {
@@ -215,6 +224,27 @@ export const DEFAULT_CONTENT = {
     text: 'Madiaba CBO works to energize marginalized communities through skills, services and practical opportunities. We welcome collaboration with individuals, organizations and partners who share our vision for inclusive community development.',
     linkLabel: 'Work with us',
     linkHref: '#contact',
+  },
+  partners: {
+    eyebrow: 'IN GOOD COMPANY',
+    title: 'Our',
+    titleAccent: 'partners.',
+    subtitle: 'We work alongside institutions and communities who believe in inclusive development.',
+    items: [
+      { name: 'Agricultural Society of Kenya', logo: '', url: '' },
+      { name: 'Kisumu County Government', logo: '', url: '' },
+      { name: 'Nyalenda Community Networks', logo: '', url: '' },
+      { name: 'Kisumu East Partners', logo: '', url: '' },
+    ],
+  },
+  footerCta: {
+    title: 'Find out more & get involved',
+    subtitle: 'Transforming the community through service — give, partner or volunteer.',
+    buttons: [
+      { label: 'Donation', href: '#donate' },
+      { label: 'Partner with Us', href: 'mailto:madiabacbo@gmail.com?subject=Partnership%20enquiry' },
+      { label: 'Volunteer', href: '#contact' },
+    ],
   },
   footer: {
     phone: '0797934679',
