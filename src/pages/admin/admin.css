@@ -143,6 +143,10 @@
 .aimage-pick { width: auto; max-width: 220px; }
 
 .alist { display: grid; gap: 12px; margin-top: 4px; }
+.aarea-photos { border: 1px solid #d7e4ef; border-radius: 12px; padding: 12px 14px; margin-top: 10px; background: #f6fafd; display: grid; gap: 10px; }
+.aarea-head { margin-bottom: 0; }
+.aarea-head strong { font-size: .85rem; }
+.aarea-count { font-size: .72rem; color: #52677d; background: #e6f0f8; border-radius: 999px; padding: 2px 10px; }
 .alist-item { border: 1px solid #e2eaf2; border-radius: 11px; padding: 12px 14px; background: #fbfdfe; }
 .alist-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .alist-head strong { font-size: .8rem; color: #073b68; }

@@ -168,6 +168,48 @@ function ListEditor({ def, content, update }) {
   );
 }
 
+function PhotosByArea({ def, content, update }) {
+  const all = getPath(content, def.path) || [];
+  const setAll = (next) => update(def.path, next);
+
+  const add = (key) => setAll([...all, { area: key, image: '', caption: '' }]);
+  const remove = (target) => setAll(all.filter((p) => p !== target));
+  const change = (target, field, v) =>
+    setAll(all.map((p) => (p === target ? { ...p, [field]: v } : p)));
+
+  return (
+    <div className="afield">
+      <span className="afield-label">{def.label}</span>
+      {def.areas.map((area) => {
+        const photos = all.filter((p) => p.area === area.key);
+        return (
+          <div className="aarea-photos" key={area.key}>
+            <div className="alist-head aarea-head">
+              <strong>{area.label}</strong>
+              <span className="aarea-count">{photos.length} photo{photos.length === 1 ? '' : 's'}</span>
+            </div>
+            {photos.map((photo, i) => (
+              <div className="alist-item" key={i}>
+                <div className="alist-head">
+                  <strong>Photo {i + 1}</strong>
+                  <span className="alist-tools">
+                    <button type="button" title="Delete" className="alist-del" onClick={() => remove(photo)}>✕</button>
+                  </span>
+                </div>
+                <ImageField label="Photo" value={photo.image} onChange={(v) => change(photo, 'image', v)} />
+                <TextField label="Caption" value={photo.caption} onChange={(v) => change(photo, 'caption', v)} />
+              </div>
+            ))}
+            <button type="button" className="abtn abtn-block" onClick={() => add(area.key)}>
+              + Add photo to {area.label}
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Field({ def, content, update }) {
   const value = getPath(content, def.path);
   const onChange = (v) => update(def.path, v);
@@ -183,6 +225,8 @@ export default function Field({ def, content, update }) {
       return <ImageField label={def.label} value={value} onChange={onChange} path={def.path} />;
     case 'list':
       return <ListEditor def={def} content={content} update={update} />;
+    case 'photosByArea':
+      return <PhotosByArea def={def} content={content} update={update} />;
     default:
       return null;
   }
