@@ -1,4 +1,4 @@
-export const CONTENT_VERSION = 4;
+export const CONTENT_VERSION = 5;
 
 export const DEFAULT_CONTENT = {
   __v: CONTENT_VERSION,
@@ -48,9 +48,9 @@ export const DEFAULT_CONTENT = {
     note: 'Community-led initiatives. Practical solutions. Lasting change.',
     image: 'assets/training-workshop.jpg',
     slides: [
-      'assets/training-workshop.jpg',
-      'assets/thematic/graduation-day.jpg',
-      'assets/thematic/jiko-insulated-batch.jpg',
+      { image: 'assets/training-workshop.jpg' },
+      { image: 'assets/thematic/graduation-day.jpg' },
+      { image: 'assets/thematic/jiko-insulated-batch.jpg' },
     ],
     photoLabelTitle: 'Skills for life.',
     photoLabelText: 'Opportunity for everyone.',

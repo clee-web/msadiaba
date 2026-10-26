@@ -61,11 +61,13 @@ export const SECTIONS = [
       { type: 'image', label: 'Hero photo (fallback if no slides)', path: 'hero.image' },
       {
         type: 'list',
-        label: 'Hero slideshow photos (crossfade every few seconds)',
+        label: 'Hero slideshow photos (upload photos; they crossfade every few seconds on the site)',
         path: 'hero.slides',
         itemLabel: 'Slide',
-        stringItems: true,
-        defaultItem: 'assets/training-workshop.jpg',
+        itemFields: [
+          { type: 'image', key: 'image', label: 'Slide photo' },
+        ],
+        defaultItem: { image: '' },
       },
       { type: 'text', label: 'Photo caption — bold line', path: 'hero.photoLabelTitle' },
       { type: 'text', label: 'Photo caption — small line', path: 'hero.photoLabelText' },

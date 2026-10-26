@@ -9,7 +9,9 @@ const SLIDE_MS = 6500;
 export default function Hero() {
   const { content } = useContent();
   const h = content.hero;
-  const slides = ((h.slides && h.slides.length ? h.slides : [h.image]).filter(Boolean));
+  const slides = (h.slides && h.slides.length ? h.slides : [{ image: h.image }])
+    .map((s) => (typeof s === 'string' ? s : s.image))
+    .filter(Boolean);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
