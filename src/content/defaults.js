@@ -1,4 +1,7 @@
+export const CONTENT_VERSION = 4;
+
 export const DEFAULT_CONTENT = {
+  __v: CONTENT_VERSION,
   theme: {
     navy: '#073b68',
     navyDeep: '#052b50',
@@ -185,7 +188,7 @@ export const DEFAULT_CONTENT = {
     btnLabel: 'Donate via WhatsApp',
     btnHref: 'https://wa.me/254797934679?text=Hello%20Madiaba%20CBO%2C%20I%20would%20like%20to%20donate.',
     methods: [
-      { icon: '📱', title: 'M-Pesa', detail: 'Till: 000 000 • Paybill: 000 000 • Name: MADIABA CBO' },
+      { icon: '📱', title: 'M-Pesa', detail: 'Go to Lipa na M-Pesa → Pay Bill: 522533 • Account: 8024438 • Name: MADIABA CBO' },
       { icon: '🏦', title: 'Bank transfer', detail: 'Account details shared on request via email or WhatsApp' },
       { icon: '🤝', title: 'In-kind support', detail: 'Tools, equipment, food or volunteer time — all welcome' },
     ],

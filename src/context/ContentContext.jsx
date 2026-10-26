@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { DEFAULT_CONTENT } from '../content/defaults';
+import { CONTENT_VERSION, DEFAULT_CONTENT } from '../content/defaults';
 import { deepMerge, setPath } from '../lib/paths';
 import { idbAll, idbClear, idbDelete, idbPut } from '../lib/db';
 
@@ -11,7 +11,9 @@ function loadSavedContent() {
   try {
     const raw = localStorage.getItem(CONTENT_KEY);
     if (!raw) return null;
-    return deepMerge(DEFAULT_CONTENT, JSON.parse(raw));
+    const saved = JSON.parse(raw);
+    if (saved.__v !== CONTENT_VERSION) return null;
+    return deepMerge(DEFAULT_CONTENT, saved);
   } catch {
     return null;
   }
